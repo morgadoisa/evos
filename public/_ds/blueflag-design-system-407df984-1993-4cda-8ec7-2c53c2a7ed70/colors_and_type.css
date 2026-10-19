@@ -1,0 +1,214 @@
+/* ============================================================
+   BLUEFLAG — Colors & Type Foundations
+   Single source of truth for the brand's visual primitives.
+   Import this file first, then layer component styles on top.
+   ============================================================ */
+
+/* ---------- Fonts (all self-hosted) ----------
+   Suisse Intl  — grotesque SANS, the primary workhorse.
+   Suisse Works — transitional SERIF, editorial accent (Book = text weight).
+   Only the wordmark's heavy condensed grotesque display cut is still missing. */
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("fonts/SuisseIntl-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Works";
+  src: url("fonts/SuisseWorks-Book.otf") format("opentype");
+  font-weight: 400;          /* Book — the reading weight */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Works";
+  src: url("fonts/SuisseWorks-Regular.otf") format("opentype");
+  font-weight: 500;          /* Regular — slightly heavier */
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     COLOR — BLUEFLAG is radically monochromatic: one electric
+     blue, true black, paper white, and a cool grey ramp between.
+     ============================================================ */
+
+  /* Brand blue (sampled from logo = #1461ED) and its working ramp */
+  --bf-blue:        #1461ED;   /* PRIMARY — the only brand hue */
+  --bf-blue-rgb:    20, 97, 237;
+  --bf-blue-700:    #0B3FB0;   /* pressed / deep */
+  --bf-blue-600:    #1356D6;   /* hover */
+  --bf-blue-500:    #1461ED;   /* = primary */
+  --bf-blue-400:    #4B86F2;   /* tints for fills on dark */
+  --bf-blue-300:    #86ABF7;
+  --bf-blue-200:    #BFD2FB;
+  --bf-blue-100:    #E4EDFE;
+  --bf-blue-050:    #F2F6FF;   /* faint wash background */
+
+  /* Neutrals — cool-leaning, never warm */
+  --bf-black:       #0A0E16;   /* ink, near-black with a blue cast */
+  --bf-ink-800:     #1A1F2B;
+  --bf-grey-600:    #5A6473;   /* secondary text */
+  --bf-grey-400:    #97A0AE;   /* tertiary / captions */
+  --bf-grey-300:    #C4CAD3;   /* borders, dividers */
+  --bf-grey-200:    #E2E6EC;   /* hairlines, surfaces */
+  --bf-grey-100:    #F0F2F5;   /* subtle panel */
+  --bf-paper:       #FFFFFF;   /* primary surface */
+  --bf-off-white:   #F7F8FA;   /* page background */
+
+  /* Semantic surface / text mappings (light theme = default) */
+  --fg-1: var(--bf-black);       /* primary text / headlines */
+  --fg-2: var(--bf-grey-600);    /* body secondary */
+  --fg-3: var(--bf-grey-400);    /* captions, meta */
+  --fg-brand: var(--bf-blue);    /* links, accents */
+  --fg-on-brand: #FFFFFF;        /* text on blue */
+
+  --bg-1: var(--bf-paper);       /* card / panel */
+  --bg-2: var(--bf-off-white);   /* page */
+  --bg-3: var(--bf-grey-100);    /* inset */
+  --bg-brand: var(--bf-blue);    /* brand fill */
+  --bg-ink:  var(--bf-black);    /* dark sections */
+
+  --border-1: var(--bf-grey-200);
+  --border-2: var(--bf-grey-300);
+  --border-strong: var(--bf-black);
+
+  /* ============================================================
+     TYPE — Two real faces:
+       • "Suisse Intl"  = grotesque SANS. The PRIMARY workhorse:
+         display, headings, UI and body. Clean and Swiss; matches
+         the wordmark. Set tight & uppercase at display scale.
+       • "Suisse Works" = classical TRANSITIONAL SERIF — editorial
+         accent for pull-quotes, intros and lyrical lines (Book wt).
+     Only the wordmark's heavy condensed grotesque display face is
+     still unprovided; it lives as the logo artwork. Token
+     --font-text is an alias for --font-sans so existing references
+     keep working — it resolves to the grotesque sans.
+     ============================================================ */
+  --font-sans:  "Suisse Intl", "Helvetica Neue", Arial, sans-serif; /* primary */
+  --font-text:  var(--font-sans);                                   /* alias */
+  --font-serif: "Suisse Works", Georgia, "Times New Roman", serif;
+  --font-mono:  "SFMono-Regular", "Menlo", "Consolas", monospace;
+
+  /* Type scale (1.250 major-third on a 16px base) */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   20px;
+  --text-lg:   25px;
+  --text-xl:   31px;
+  --text-2xl:  44px;
+  --text-3xl:  62px;
+  --text-4xl:  88px;
+  --text-5xl:  124px;  /* poster / hero */
+
+  --leading-tight:   1.02;  /* display */
+  --leading-snug:    1.12;  /* headings */
+  --leading-normal:  1.5;   /* body */
+  --leading-relaxed: 1.65;
+
+  /* Tracking — display is set TIGHT, eyebrows are set WIDE */
+  --tracking-display: -0.02em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.16em;  /* eyebrows / labels, uppercase */
+
+  /* ============================================================
+     SPACE, RADIUS, SHADOW
+     8px base grid. Radii are RESTRAINED — the brand reads as
+     precise & Swiss; sharp/square is the default, with one soft
+     radius for friendly UI surfaces. The organic feel comes from
+     the grafismo imagery, NOT from rounded boxes.
+     ============================================================ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --radius-0: 0px;     /* default — Swiss, crisp */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;  /* buttons & chips can go fully round */
+
+  --shadow-sm: 0 1px 2px rgba(10, 14, 22, 0.06);
+  --shadow-md: 0 6px 20px rgba(10, 14, 22, 0.08);
+  --shadow-lg: 0 18px 48px rgba(10, 14, 22, 0.12);
+  --shadow-blue: 0 14px 40px rgba(var(--bf-blue-rgb), 0.28);
+
+  --maxw: 1200px;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply .bf scope (or the body) to inherit base typography.
+   ============================================================ */
+.bf, .bf-root {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-2);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display — poster scale, uppercase, tight. Echoes the wordmark. */
+.bf-display {
+  font-family: var(--font-sans);
+  font-weight: 400;            /* only Regular provided; see README */
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.bf-h1 { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-4xl); line-height: var(--leading-tight);  letter-spacing: var(--tracking-display); text-transform: uppercase; text-wrap: balance; }
+.bf-h2 { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-3xl); line-height: var(--leading-snug);   letter-spacing: var(--tracking-tight);   text-wrap: balance; }
+.bf-h3 { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-2xl); line-height: var(--leading-snug);   letter-spacing: var(--tracking-tight); }
+.bf-h4 { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-xl);  line-height: var(--leading-snug);   letter-spacing: var(--tracking-tight); }
+
+/* Editorial serif — Suisse Works, for intros & pull-quotes */
+.bf-serif      { font-family: var(--font-serif); font-weight: 400; }
+.bf-lede {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-2);
+}
+.bf-quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+/* Body */
+.bf-body  { font-family: var(--font-sans); font-size: var(--text-base); line-height: var(--leading-normal); color: var(--fg-2); }
+.bf-small { font-family: var(--font-sans); font-size: var(--text-sm);   line-height: var(--leading-normal); color: var(--fg-2); }
+
+/* Eyebrow / label — uppercase, wide-tracked, small */
+.bf-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-brand);
+}
+
+.bf-mono { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0; }
+
+a.bf-link { color: var(--fg-brand); text-decoration: none; border-bottom: 1px solid currentColor; }
+a.bf-link:hover { opacity: 0.7; }
